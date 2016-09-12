@@ -5,8 +5,8 @@ void ofApp::setup(){
   ofSetLogLevel(OF_LOG_VERBOSE);
     ofDisableAntiAliasing();
   ofBackground(0);
-    stars.setupField(5000);
-    recorder.setup(3000);
+    stars.setupField(7500);
+    recorder.setup(LOADING, 3000);
 };
 
 //--------------------------------------------------------------

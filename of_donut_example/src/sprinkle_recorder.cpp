@@ -1,60 +1,48 @@
 #include "sprinkle_recorder.h"
 
-
-
-void SprinkleRecorder::setup(long d){
+void SprinkleRecorder::setup(int m, long d){
     lastTime = ofGetElapsedTimeMillis();
     targetTime = lastTime + d;
-    enabled = true;
-}
-
-void SprinkleRecorder::delayScan(){
-    targetTime = ofGetElapsedTimeMillis() + ofRandom(1000,3000);
-    enabled = false;
+    mode = m;
 }
 
 void SprinkleRecorder::update(std::vector<Sprinkle>  *sprinkles){
-    if(!enabled){
+    if(mode == LOADING){
         if(ofGetElapsedTimeMillis() > targetTime){
-            setup(ofRandom(3000,5000));
+            setup(SCANNING, ofRandom(1000,3000));
         }
-    }else{
+    }else if(mode == SCANNING){
         if(isReady()){
-            delayScan();
-            for (auto& p : *sprinkles) {
-                p.setTracked(false);
-            }
+            setup(WORKING, ofRandom(3000,5000));
         }
         for (auto& p : *sprinkles) {
             if(abs(p.getXPos() - scanPos) < 5){
                 p.setTracked(true);
             }
         }
+    }else if(mode == WORKING){
+        if(ofGetElapsedTimeMillis() > targetTime){
+            for (auto& p : *sprinkles) {
+                p.setTracked(false);
+            }
+            setup(LOADING, 1000);
+        }
     }
 }
 
 void SprinkleRecorder::draw(){
-    drawTimer();
-    if(enabled){
+    if(mode == SCANNING){
         drawScanLine();
+    }else if(mode == LOADING){
+        drawTimer();
     }
 }
 
 void SprinkleRecorder::drawTimer(){
-    /*
-     ofSetColor(255);
-     ofDrawRectangle(0, 0, ofGetWidth(), 15);
-     ofSetColor(100);
-     //ofDrawLine(10, 10, 20, 20);
-     ofDrawLine(10, 10, ofGetWidth()-20, 10);
-     ofFill();
-     ofSetColor(255,70,0);
-     barHeight = ofMap(ofGetElapsedTimeMillis(), lastTime, targetTime, ofGetWidth()-20, 0);
-     ofDrawRectangle(10, 7, barHeight, 5);
-     */
     ofFill();
     ofSetColor(255,70,0);
-    barHeight = ofMap(ofGetElapsedTimeMillis(), lastTime, targetTime, ofGetHeight()-100, 0);
+    barHeight = ofMap(ofGetElapsedTimeMillis(),
+                      lastTime, targetTime, ofGetHeight() - 100, 0);
     ofDrawRectangle(10, 10, 5, barHeight);
     
 }
