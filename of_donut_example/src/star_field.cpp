@@ -46,7 +46,7 @@ void StarField::updateField(){
 }
 
 void StarField::drawConns(std::vector<Sprinkle>  *sprinkles){
-    ofSetColor(50);
+    ofSetColor(25);
     for (auto& p : *sprinkles) {
         for(int i = 0; i < numStars; i+=2){
             float dist = ofDist(p.getXPos(), p.getYPos(),
@@ -64,7 +64,7 @@ void StarField::drawConns(std::vector<Sprinkle>  *sprinkles){
 void StarField::drawField(){
     ofFill();
     for(int i  = 0; i < numStars; i+=2){
-        ofSetColor(brightness[i]);
+        ofSetColor(255, brightness[i]);
         ofDrawCircle(ofMap(stars[i], 0, 1, 0, ofGetWidth()),
                      ofMap(stars[i+1], 0, 1, 0, ofGetHeight()), radii[i]);
     }

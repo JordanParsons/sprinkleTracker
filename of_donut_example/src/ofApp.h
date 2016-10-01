@@ -32,6 +32,11 @@ class ofApp : public ofBaseApp{
         StarField stars;
         SprinkleRecorder recorder;
     
+    ofShader shaderBlurA;
+    ofShader shaderBlurB;
+    ofFbo bufferA;
+    ofFbo bufferB;
+    
         bool paused = false;
 
 };

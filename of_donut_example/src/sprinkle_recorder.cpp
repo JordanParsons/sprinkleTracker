@@ -16,7 +16,7 @@ void SprinkleRecorder::update(std::vector<Sprinkle>  *sprinkles){
             setup(WORKING, ofRandom(3000,5000));
         }
         for (auto& p : *sprinkles) {
-            if(abs(p.getXPos() - scanPos) < 5){
+            if(abs(p.getXPos() - scanPos) < 10){
                 p.setTracked(true);
             }
         }

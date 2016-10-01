@@ -25,6 +25,7 @@
 		879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */; };
 		8E0F1BC21D7493520079318B /* donut_cop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F1BBE1D7493520079318B /* donut_cop.cpp */; };
 		8E0F1BC31D7493520079318B /* sprinkle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F1BC01D7493520079318B /* sprinkle.cpp */; };
+		8E5FB70C1DA03ED10066A1B0 /* QuadTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E5FB70B1DA03ED10066A1B0 /* QuadTree.cpp */; };
 		8E888E051D77C4AC009A58D6 /* donut_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E888E031D77C4AC009A58D6 /* donut_data.cpp */; };
 		8ED83A891D7CD865004359E5 /* star_field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED83A871D7CD865004359E5 /* star_field.cpp */; };
 		8ED83A8C1D7DEDED004359E5 /* sprinkle_recorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED83A8A1D7DEDED004359E5 /* sprinkle_recorder.cpp */; };
@@ -106,6 +107,10 @@
 		8E0F1BBF1D7493520079318B /* donut_cop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = donut_cop.h; sourceTree = "<group>"; };
 		8E0F1BC01D7493520079318B /* sprinkle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sprinkle.cpp; sourceTree = "<group>"; };
 		8E0F1BC11D7493520079318B /* sprinkle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sprinkle.h; sourceTree = "<group>"; };
+		8E5FB7081D9ED2100066A1B0 /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
+		8E5FB70A1DA03E490066A1B0 /* AABB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AABB.h; sourceTree = "<group>"; };
+		8E5FB70B1DA03ED10066A1B0 /* QuadTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadTree.cpp; sourceTree = "<group>"; };
+		8E5FB70D1DA03EF80066A1B0 /* QuadTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuadTree.h; sourceTree = "<group>"; };
 		8E888E031D77C4AC009A58D6 /* donut_data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = donut_data.cpp; sourceTree = "<group>"; };
 		8E888E041D77C4AC009A58D6 /* donut_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = donut_data.h; sourceTree = "<group>"; };
 		8ED83A871D7CD865004359E5 /* star_field.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = star_field.cpp; sourceTree = "<group>"; };
@@ -319,6 +324,7 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
+				8E5FB7081D9ED2100066A1B0 /* bin */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
@@ -333,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				8E0F1BBE1D7493520079318B /* donut_cop.cpp */,
+				8E5FB70B1DA03ED10066A1B0 /* QuadTree.cpp */,
 				8E0F1BBF1D7493520079318B /* donut_cop.h */,
 				8E0F1BC01D7493520079318B /* sprinkle.cpp */,
 				8E0F1BC11D7493520079318B /* sprinkle.h */,
@@ -345,6 +352,8 @@
 				8E888E041D77C4AC009A58D6 /* donut_data.h */,
 				8ED83A8A1D7DEDED004359E5 /* sprinkle_recorder.cpp */,
 				8ED83A8B1D7DEDED004359E5 /* sprinkle_recorder.h */,
+				8E5FB70A1DA03E490066A1B0 /* AABB.h */,
+				8E5FB70D1DA03EF80066A1B0 /* QuadTree.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -492,6 +501,7 @@
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
+				8E5FB70C1DA03ED10066A1B0 /* QuadTree.cpp in Sources */,
 				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
 				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
 				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
