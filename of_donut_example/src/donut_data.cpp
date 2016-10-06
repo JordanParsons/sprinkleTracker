@@ -19,7 +19,7 @@ void DonutData::draw(){
         updateSprinkleInfo(&p);
         drawSprinkle(&p);
         drawTrackingLines(&p);
-        //drawTrackingData(&p);
+        drawTrackingData(&p);
         drawTrackingSquare(&p);
     }
     /*

@@ -12,7 +12,7 @@ class Sprinkle{
     
     // Standard OF functions
     void draw();
-    void update(float maxVel, float maxAcc);
+    void update(float maxVel, float maxAcc, bool beFroze);
     
     // Custom functions
     ofxOscMessage createOSCMessage() const;
@@ -27,6 +27,8 @@ class Sprinkle{
     float getFree2() const { return free2; };
     bool canTrack() const { return track; };
     float getRad() const { return rad; };
+    ofVec2f getPos() const { return ofVec2f(xPos, yPos); }
+    ofVec2f * getPosP() { return & pos; }
     void setTracked(bool t) { track = t; };
 
   protected:
@@ -43,4 +45,5 @@ class Sprinkle{
     float yPos;
     bool track;
     float rad;
+    ofVec2f pos;
 };

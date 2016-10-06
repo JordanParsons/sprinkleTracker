@@ -3,39 +3,59 @@
 void SprinkleRecorder::setup(int m, long d){
     lastTime = ofGetElapsedTimeMillis();
     targetTime = lastTime + d;
+    lastMode = mode;
     mode = m;
 }
 
 void SprinkleRecorder::update(std::vector<Sprinkle>  *sprinkles){
     if(mode == LOADING){
         if(ofGetElapsedTimeMillis() > targetTime){
-            setup(SCANNING, ofRandom(1000,3000));
+            for (auto& p : *sprinkles) {
+                p.setTracked(false);
+            }
+            setup(SCANNING, ofRandom(500,5000));
         }
     }else if(mode == SCANNING){
         if(isReady()){
-            setup(WORKING, ofRandom(3000,5000));
+            setup(WORKING, ofRandom(5000,10000));
         }
         for (auto& p : *sprinkles) {
             if(abs(p.getXPos() - scanPos) < 10){
+                if(!p.canTrack()){
+                    currentLine.push_back(&p);
+                }
                 p.setTracked(true);
             }
         }
     }else if(mode == WORKING){
         if(ofGetElapsedTimeMillis() > targetTime){
+            currentLine.clear();
             for (auto& p : *sprinkles) {
                 p.setTracked(false);
             }
-            setup(LOADING, 1000);
+            setup(WAITING, ofRandom(25000,60000));
         }
-    }
+    }else if(mode == WAITING){
+            if(ofGetElapsedTimeMillis() > targetTime){
+                currentLine.clear();
+                setup(LOADING, ofRandom(750,2500));
+            }
+        }
 }
 
 void SprinkleRecorder::draw(){
     if(mode == SCANNING){
         drawScanLine();
+        drawTrackedLine();
     }else if(mode == LOADING){
         drawTimer();
+    }else{
+        drawTrackedLine();
     }
+}
+
+void SprinkleRecorder::drawTrackedLine(){
+    
 }
 
 void SprinkleRecorder::drawTimer(){
@@ -55,4 +75,29 @@ void SprinkleRecorder::drawScanLine(){
 
 bool SprinkleRecorder::isReady(){
     return (ofGetElapsedTimeMillis() > targetTime);
+}
+
+bool SprinkleRecorder::isLoading(){
+    if (mode == LOADING){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+bool SprinkleRecorder::isScanning() {
+    if (mode == SCANNING){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+bool SprinkleRecorder::isDoneScanning(){
+    if(lastMode == SCANNING && mode == WORKING){
+        lastMode = WORKING;
+        return true;
+    }else{
+        return false;
+    }
 }

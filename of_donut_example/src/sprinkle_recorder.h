@@ -4,6 +4,7 @@
 #define SCANNING 0
 #define LOADING 1
 #define WORKING 2
+#define WAITING 3
 
 class SprinkleRecorder{
     public:
@@ -12,11 +13,19 @@ class SprinkleRecorder{
         void draw();
         void drawTimer();
         void drawScanLine();
+        void drawTrackedLine();
         bool isReady();
+        bool isScanning();
+        bool isDoneScanning();
+        bool isLoading();
+        bool isWaiting() { return (mode == WAITING); };
+      bool isWorking() { return (mode == WORKING); };
     private:
         float barHeight;
         float scanPos;
         long lastTime;
         long targetTime;
-        int mode = SCANNING;
+        int mode = LOADING;
+        int lastMode = WAITING;
+        vector<Sprinkle*> currentLine;
 };

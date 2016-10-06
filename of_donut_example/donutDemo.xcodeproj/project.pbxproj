@@ -108,7 +108,6 @@
 		8E0F1BC01D7493520079318B /* sprinkle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sprinkle.cpp; sourceTree = "<group>"; };
 		8E0F1BC11D7493520079318B /* sprinkle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sprinkle.h; sourceTree = "<group>"; };
 		8E5FB7081D9ED2100066A1B0 /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
-		8E5FB70A1DA03E490066A1B0 /* AABB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AABB.h; sourceTree = "<group>"; };
 		8E5FB70B1DA03ED10066A1B0 /* QuadTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadTree.cpp; sourceTree = "<group>"; };
 		8E5FB70D1DA03EF80066A1B0 /* QuadTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuadTree.h; sourceTree = "<group>"; };
 		8E888E031D77C4AC009A58D6 /* donut_data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = donut_data.cpp; sourceTree = "<group>"; };
@@ -352,7 +351,6 @@
 				8E888E041D77C4AC009A58D6 /* donut_data.h */,
 				8ED83A8A1D7DEDED004359E5 /* sprinkle_recorder.cpp */,
 				8ED83A8B1D7DEDED004359E5 /* sprinkle_recorder.h */,
-				8E5FB70A1DA03E490066A1B0 /* AABB.h */,
 				8E5FB70D1DA03EF80066A1B0 /* QuadTree.h */,
 			);
 			path = src;

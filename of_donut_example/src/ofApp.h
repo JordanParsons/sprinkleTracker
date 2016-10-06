@@ -7,6 +7,8 @@
 #include "donut_data.h"
 #include "star_field.h"
 #include "sprinkle_recorder.h"
+#include "QuadTree.h"
+
 
 class ofApp : public ofBaseApp{
 
@@ -16,6 +18,8 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+        void drawTrackedLine();
+    void drawTree(bool draw);
 
 		// OF Events
 		void windowResized(int w, int h);
@@ -32,11 +36,40 @@ class ofApp : public ofBaseApp{
         StarField stars;
         SprinkleRecorder recorder;
     
-    ofShader shaderBlurA;
-    ofShader shaderBlurB;
-    ofFbo bufferA;
-    ofFbo bufferB;
+        ofTrueTypeFont announce;
     
+            bool addingConst;
+        std::vector<vector<float*>> constilations;
+    
+        void addConstilation();
+    long addStarted;
+    ofImage search;
+    ofImage result;
+    long shouldStartAdding;
+    
+    bool drawGridForFun;
+    long turnGridOffAt;
+    
+    
+        bool doneScanning;
+    
+        ofShader shaderBlurA;
+        ofFbo bufferA;
+
+    
+        Quadtree * tree;
+ 
         bool paused = false;
+    
+    int maxSearchRad = 150;
+    int minSearchRad = 25;
+    float searchRadSetp = 0.05;
+    float searchRad = 50;
+    
+        //tree
+    bool blinkTree;
+    bool lastDrawTree;
+    int currentTreeBlink;
+    long treeBlinkTime;
 
 };

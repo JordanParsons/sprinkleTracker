@@ -6,7 +6,7 @@
 #define HOST "localhost"
 #define PORT 9000
 #define ID_EXPIRATION_IN_SECONDS 10
-#define MAXP 200
+#define MAXP 500
 #define MINP 100
 #define MAXC 1
 #define MAXV 0.01

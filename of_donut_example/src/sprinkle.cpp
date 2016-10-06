@@ -39,8 +39,8 @@ Sprinkle::Sprinkle(const ofxOscMessage &m) {
 }
 
 //--------------------------------------------------------------
-void Sprinkle::update(float maxVel, float maxAcc) {
-    if(track){
+void Sprinkle::update(float maxVel, float maxAcc, bool beFroze) {
+    if(track && beFroze){
         return;
     }
     
@@ -51,8 +51,8 @@ void Sprinkle::update(float maxVel, float maxAcc) {
         yAcc *= -1.0;
     }
     
-    x += xVel * 0.1f;
-    y += yVel * 0.1f;
+    x += xVel * 0.5f;
+    y += yVel * 0.5f;
     
     
     xVel += xAcc;
@@ -65,6 +65,7 @@ void Sprinkle::update(float maxVel, float maxAcc) {
     yPos = ofMap(y,0.0, maxY, 0.0, ofGetHeight());
     free1 = ofClamp(free1+ofRandomf()*0.001f, 0, 1);
     free2 = ofClamp(free2+ofRandomf()*0.001f, 0, 1);
+    pos = ofVec2f(xPos, yPos);
     
 }
 
