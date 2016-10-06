@@ -19,6 +19,7 @@ void ofApp::setup(){
     announce.load("frabk.ttf", 24);
     search.load("overlay-search.png");
     result.load("overlay-result.png");
+    donutCop.setId(0);
     
 };
 

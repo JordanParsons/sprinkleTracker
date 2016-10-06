@@ -163,15 +163,15 @@ void DonutCop::handleControlMessage(const ofxOscMessage &m) {
   // Calculate left and right IDs
   int val;
   int maxId = 0;
-  leftId = 256;
-  rightId = -1;
+  leftId = -1;
+  rightId = 256;
   for (int i = 0; i < data.size(); ++i) {
     val = (int)(data.getData()[i]);
-    if (val > id && val < leftId) {
-      leftId = val;
-    }
-    if (val < id && val > rightId) {
+    if (val > id && val < rightId) {
       rightId = val;
+    }
+    if (val < id && val > leftId) {
+      leftId = val;
     }
     if (val > maxId) {
       maxId = val;

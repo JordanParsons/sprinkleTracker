@@ -51,8 +51,8 @@ void Sprinkle::update(float maxVel, float maxAcc, bool beFroze) {
         yAcc *= -1.0;
     }
     
-    x += xVel * 0.5f;
-    y += yVel * 0.5f;
+    x += xVel * 0.75f;
+    y += yVel * 0.75f;
     
     
     xVel += xAcc;

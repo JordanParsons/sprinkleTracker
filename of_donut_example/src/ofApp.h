@@ -9,6 +9,9 @@
 #include "sprinkle_recorder.h"
 #include "QuadTree.h"
 
+#define HC_HEIGHT 1920
+#define HC_WIDTH 1080
+
 
 class ofApp : public ofBaseApp{
 
